@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+actor Admin
+actor Commercial
+actor User
+
+rectangle CRM {
+  usecase "Se connecter" as UC1
+  usecase "Gerer contacts" as UC2
+  usecase "Gerer entreprises" as UC3
+  usecase "Gerer leads" as UC4
+  usecase "Changer etape pipeline" as UC5
+  usecase "Gerer taches" as UC6
+  usecase "Envoyer email" as UC7
+  usecase "Executer relance 72h" as UC8
+  usecase "Consulter dashboard KPI" as UC9
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+
+Commercial --> UC1
+Commercial --> UC2
+Commercial --> UC3
+Commercial --> UC4
+Commercial --> UC5
+Commercial --> UC6
+Commercial --> UC7
+Commercial --> UC8
+Commercial --> UC9
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC6
+User --> UC9
+@enduml

@@ -1,0 +1,8 @@
+flowchart LR
+  A["Frontend (Next.js)"] -->|"HTTP / API Routes"| B["Backend Layer (Next.js Route Handlers)"]
+  B -->|"Service Role"| C["Supabase PostgreSQL"]
+  B -->|"Auth Session"| D["Supabase Auth"]
+  B -->|"Email API"| E["Brevo"]
+  A -->|"Session Cookies"| D
+  F["Vercel Deployment"] --> A
+  F --> B

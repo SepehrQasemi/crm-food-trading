@@ -1,0 +1,16 @@
+# Node / Next
+web/node_modules/
+web/.next/
+web/out/
+
+# Env files
+web/.env.local
+web/.env.*.local
+
+# Supabase temp
+supabase/.temp/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/

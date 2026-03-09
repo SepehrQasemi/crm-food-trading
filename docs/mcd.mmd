@@ -1,0 +1,18 @@
+erDiagram
+  PROFILES ||--o{ COMPANIES : "owns"
+  PROFILES ||--o{ CONTACTS : "owns"
+  PROFILES ||--o{ LEADS : "owns"
+  PROFILES ||--o{ LEADS : "assigned_to"
+  PROFILES ||--o{ TASKS : "owns_or_assigns"
+  PROFILES ||--o{ LEAD_STAGE_HISTORY : "changes"
+
+  COMPANIES ||--o{ CONTACTS : "has"
+  COMPANIES ||--o{ LEADS : "related"
+  CONTACTS ||--o{ LEADS : "related"
+  LEADS ||--o{ LEAD_STAGE_HISTORY : "history"
+  PIPELINE_STAGES ||--o{ LEADS : "current_stage"
+  PIPELINE_STAGES ||--o{ LEAD_STAGE_HISTORY : "from_to"
+  LEADS ||--o{ TASKS : "tasks"
+  LEADS ||--o{ EMAIL_LOGS : "emails"
+  CONTACTS ||--o{ EMAIL_LOGS : "emails"
+  EMAIL_TEMPLATES ||--o{ EMAIL_LOGS : "generated"
