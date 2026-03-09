@@ -26,30 +26,6 @@ function loadEnvFromFile(filePath: string) {
   }
 }
 
-async function findUserIdByEmail(
-  supabase: any,
-  email: string,
-): Promise<string | null> {
-  const normalized = email.toLowerCase();
-  let page = 1;
-  const perPage = 200;
-
-  // Paginate through users to avoid relying on a single page.
-  while (true) {
-    const { data, error } = await supabase.auth.admin.listUsers({ page, perPage });
-    if (error) {
-      throw new Error(`Failed to list users: ${error.message}`);
-    }
-
-    const users = (data.users ?? []) as Array<{ id: string; email: string | null }>;
-    const match = users.find((user) => (user.email ?? "").toLowerCase() === normalized);
-    if (match) return match.id;
-
-    if (users.length < perPage) return null;
-    page += 1;
-  }
-}
-
 export default async function globalSetup() {
   loadEnvFromFile(path.resolve(process.cwd(), ".env.local"));
 
@@ -69,7 +45,28 @@ export default async function globalSetup() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  let userId = await findUserIdByEmail(supabase, e2eEmail);
+  const findUserIdByEmail = async (email: string): Promise<string | null> => {
+    const normalized = email.toLowerCase();
+    let page = 1;
+    const perPage = 200;
+
+    // Paginate through users to avoid relying on a single page.
+    while (true) {
+      const { data, error } = await supabase.auth.admin.listUsers({ page, perPage });
+      if (error) {
+        throw new Error(`Failed to list users: ${error.message}`);
+      }
+
+      const users = data.users ?? [];
+      const match = users.find((user) => (user.email ?? "").toLowerCase() === normalized);
+      if (match) return match.id;
+
+      if (users.length < perPage) return null;
+      page += 1;
+    }
+  };
+
+  let userId = await findUserIdByEmail(e2eEmail);
 
   if (userId) {
     const { error } = await supabase.auth.admin.updateUserById(userId, {
