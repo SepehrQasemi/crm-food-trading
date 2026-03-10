@@ -579,12 +579,15 @@ export function normalizeLocale(value?: string | null): Locale {
   if (!value) return "en";
   const lc = value.toLowerCase();
   if (lc.startsWith("fr")) return "fr";
-  if (lc.startsWith("fa") || lc.startsWith("ar")) return "fa";
+  // Persian is temporarily archived. Map previous FA/AR selections back to EN.
+  if (lc.startsWith("fa") || lc.startsWith("ar")) return "en";
   return "en";
 }
 
 export function isRtlLocale(locale: Locale): boolean {
-  return locale === "fa";
+  // RTL is currently disabled while Persian is archived.
+  void locale;
+  return false;
 }
 
 function formatTemplate(template: string, vars?: Record<string, string | number>): string {

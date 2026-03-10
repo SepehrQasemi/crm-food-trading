@@ -6,15 +6,15 @@ describe("i18n helpers", () => {
     expect(normalizeLocale(undefined)).toBe("en");
     expect(normalizeLocale(null)).toBe("en");
     expect(normalizeLocale("fr-FR")).toBe("fr");
-    expect(normalizeLocale("fa-IR")).toBe("fa");
-    expect(normalizeLocale("ar")).toBe("fa");
+    expect(normalizeLocale("fa-IR")).toBe("en");
+    expect(normalizeLocale("ar")).toBe("en");
     expect(normalizeLocale("de-DE")).toBe("en");
   });
 
-  it("returns rtl only for Persian locale", () => {
+  it("keeps rtl disabled while Persian is archived", () => {
     expect(isRtlLocale("en")).toBe(false);
     expect(isRtlLocale("fr")).toBe(false);
-    expect(isRtlLocale("fa")).toBe(true);
+    expect(isRtlLocale("fa")).toBe(false);
   });
 
   it("falls back to key when translation does not exist", () => {

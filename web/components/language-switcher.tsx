@@ -4,10 +4,9 @@ import clsx from "clsx";
 import { Locale } from "@/lib/i18n";
 import { useLocale } from "@/components/locale-provider";
 
-const options: Array<{ value: Locale; label: string }> = [
+const options: Array<{ value: Extract<Locale, "en" | "fr">; label: string }> = [
   { value: "en", label: "EN" },
   { value: "fr", label: "FR" },
-  { value: "fa", label: "FA" },
 ];
 
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {

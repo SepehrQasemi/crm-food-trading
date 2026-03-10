@@ -33,7 +33,7 @@ function contentByLocale(locale: "en" | "fr" | "fa") {
       faqTitle: "Questions fréquentes",
       directionTitle: "Langue & direction",
       directionBody:
-        "Utilisez le sélecteur EN/FR/FA. Le mode FA active automatiquement le RTL.",
+        "Utilisez le sélecteur EN/FR. Le mode persan est temporairement archivé.",
     };
   }
 
@@ -84,7 +84,7 @@ function contentByLocale(locale: "en" | "fr" | "fa") {
     faqTitle: "Frequently Asked Questions",
     directionTitle: "Language & direction",
     directionBody:
-      "Use the EN/FR/FA switcher. Persian automatically enables full RTL layout.",
+      "Use the EN/FR switcher. Persian is temporarily archived.",
   };
 }
 
@@ -98,7 +98,7 @@ function faqsByLocale(locale: "en" | "fr" | "fa"): FaqItem[] {
       { q: "Comment lancer la relance 72h ?", a: "Emails -> Run follow-up 72h, d'abord dry-run puis exécution réelle." },
       { q: "Comment voir les tâches urgentes ?", a: "Tasks affiche Overdue, Due in 24h et un tableau d'alertes." },
       { q: "Comment exporter les KPI ?", a: "Dashboard propose Export CSV et Export PDF." },
-      { q: "Comment passer en persan RTL ?", a: "Choisissez FA dans le sélecteur de langue." },
+      { q: "Le persan est-il disponible ?", a: "Pas pour le moment. Utilisez EN ou FR." },
       { q: "Où sont les logs d'emails ?", a: "Emails -> Email logs." },
       { q: "Qui peut gérer les réglages ?", a: "Les admins gèrent setup et supervision." },
       { q: "Comment relier un produit à une entreprise ?", a: "Products -> Product-company relations (traded/potential)." },
@@ -129,7 +129,7 @@ function faqsByLocale(locale: "en" | "fr" | "fa"): FaqItem[] {
     { q: "How do I run 72h follow-up?", a: "Emails -> Run follow-up 72h, use dry-run first then real send." },
     { q: "Where can I see urgent tasks?", a: "Tasks page shows Overdue, Due in 24h, and deadline notifications." },
     { q: "How do I export KPI reports?", a: "Dashboard offers Export CSV and Export PDF actions." },
-    { q: "How do I switch to Persian RTL?", a: "Choose FA from the language switcher in the shell." },
+    { q: "Is Persian available right now?", a: "Not for now. Use EN or FR." },
     { q: "Where are email logs?", a: "Emails page -> Email logs section." },
     { q: "Who can manage setup and roles?", a: "Admins handle setup and supervision." },
     { q: "How do I link products to companies?", a: "Products page -> Product-company relations form." },

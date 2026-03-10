@@ -11,8 +11,8 @@ function Probe() {
     <div>
       <p data-testid="locale">{locale}</p>
       <p data-testid="rtl">{String(isRtl)}</p>
-      <button type="button" onClick={() => setLocale("fa")}>
-        Set FA
+      <button type="button" onClick={() => setLocale("fr")}>
+        Set FR
       </button>
     </div>
   );
@@ -32,11 +32,11 @@ describe("LocaleProvider", () => {
     expect(screen.getByTestId("locale")).toHaveTextContent("en");
     expect(document.documentElement.dir).toBe("ltr");
 
-    await user.click(screen.getByRole("button", { name: "Set FA" }));
-    expect(screen.getByTestId("locale")).toHaveTextContent("fa");
-    expect(screen.getByTestId("rtl")).toHaveTextContent("true");
-    expect(document.documentElement.dir).toBe("rtl");
-    expect(window.localStorage.getItem("crm_locale")).toBe("fa");
-    expect(document.cookie).toContain("crm_locale=fa");
+    await user.click(screen.getByRole("button", { name: "Set FR" }));
+    expect(screen.getByTestId("locale")).toHaveTextContent("fr");
+    expect(screen.getByTestId("rtl")).toHaveTextContent("false");
+    expect(document.documentElement.dir).toBe("ltr");
+    expect(window.localStorage.getItem("crm_locale")).toBe("fr");
+    expect(document.cookie).toContain("crm_locale=fr");
   });
 });

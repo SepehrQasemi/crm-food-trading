@@ -67,7 +67,6 @@ export function AppShell({ children, user }: AppShellProps) {
 
       <aside className={clsx("sidebar", { open: isSidebarOpen })}>
         <BrandLogo compact />
-        <LanguageSwitcher compact />
         <nav className="nav-list">
           {navItems.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -110,6 +109,7 @@ export function AppShell({ children, user }: AppShellProps) {
         <div className="app-toolbar">
           <GlobalSearch />
           <div className="inline-actions">
+            <LanguageSwitcher compact />
             <Link href="/help" className="btn btn-secondary">
               {tr("Open Help Center")}
             </Link>
