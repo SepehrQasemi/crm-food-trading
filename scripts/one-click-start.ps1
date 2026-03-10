@@ -1,4 +1,5 @@
 param(
+  [switch]$RunHealth,
   [switch]$SkipHealth,
   [switch]$NoBrowser,
   [switch]$ForceInstall,
@@ -51,12 +52,12 @@ if ($ForceInstall -or -not (Test-Path $rootModules) -or -not (Test-Path $webModu
   Write-Step "Dependencies already installed."
 }
 
-if (-not $SkipHealth) {
+if ($RunHealth -and -not $SkipHealth) {
   Write-Step "Running quick health checks (lint + build)..."
   npm run lint
   npm run build
 } else {
-  Write-Step "Skipping quick health checks."
+  Write-Step "Skipping quick health checks (use -RunHealth to enable)."
 }
 
 if (-not $NoBrowser) {
