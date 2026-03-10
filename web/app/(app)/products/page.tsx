@@ -77,6 +77,8 @@ type RelationForm = {
   notes: string;
 };
 
+type ProductWorkspaceTab = "catalog" | "relations" | "finder";
+
 const initialRelationForm: RelationForm = {
   product_id: "",
   company_id: "",
@@ -114,6 +116,7 @@ export default function ProductsPage() {
   const [finderProductId, setFinderProductId] = useState("");
   const [finderRelation, setFinderRelation] = useState<"" | "traded" | "potential">("");
   const [finderModel, setFinderModel] = useState("");
+  const [activeTab, setActiveTab] = useState<ProductWorkspaceTab>("catalog");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -420,6 +423,40 @@ export default function ProductsPage() {
       {success ? <p className="success">{success}</p> : null}
 
       <section className="panel stack">
+        <div className="subtabs" role="tablist" aria-label="Products workspace tabs">
+          <button
+            className={`subtab ${activeTab === "catalog" ? "is-active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "catalog"}
+            onClick={() => setActiveTab("catalog")}
+          >
+            Product Catalog
+          </button>
+          <button
+            className={`subtab ${activeTab === "relations" ? "is-active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "relations"}
+            onClick={() => setActiveTab("relations")}
+          >
+            Product Relations
+          </button>
+          <button
+            className={`subtab ${activeTab === "finder" ? "is-active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "finder"}
+            onClick={() => setActiveTab("finder")}
+          >
+            Customer Finder
+          </button>
+        </div>
+      </section>
+
+      {activeTab === "catalog" ? (
+      <>
+      <section className="panel stack">
         <h2>{tr("Product filters")}</h2>
         <form className="row" onSubmit={applyFilters}>
           <label className="col-4 stack">
@@ -483,7 +520,10 @@ export default function ProductsPage() {
           </div>
         </form>
       </section>
+      </>
+      ) : null}
 
+      {activeTab === "finder" ? (
       <section className="panel stack">
         <h2>Customer finder by product</h2>
         <p className="small">
@@ -582,7 +622,10 @@ export default function ProductsPage() {
           </tbody>
         </table>
       </section>
+      ) : null}
 
+      {activeTab === "catalog" ? (
+      <>
       <section className="panel stack">
         <h2>{editingId ? tr("Edit product") : tr("New product")}</h2>
         <form className="stack" onSubmit={saveProduct}>
@@ -742,7 +785,10 @@ export default function ProductsPage() {
           </tbody>
         </table>
       </section>
+      </>
+      ) : null}
 
+      {activeTab === "relations" ? (
       <section className="panel stack">
         <h2>{tr("Product-company relations")}</h2>
         <form className="stack" onSubmit={saveRelation}>
@@ -863,6 +909,7 @@ export default function ProductsPage() {
           </tbody>
         </table>
       </section>
+      ) : null}
     </div>
   );
 }

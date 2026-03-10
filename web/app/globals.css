@@ -401,6 +401,34 @@ a {
   box-shadow: var(--shadow);
 }
 
+.subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.subtab {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.subtab:hover {
+  border-color: #9cccae;
+  background: #f4faf7;
+}
+
+.subtab.is-active {
+  border-color: #8fcfa8;
+  background: #dff3e6;
+  color: #0f5f31;
+}
+
 .stack {
   display: flex;
   flex-direction: column;

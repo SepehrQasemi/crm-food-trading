@@ -74,6 +74,7 @@ test.describe("CRM end-to-end", () => {
     await productForm.getByLabel("Sale price").fill("1450");
     await productForm.getByRole("button", { name: "Create product" }).click();
 
+    await page.getByRole("tab", { name: "Product Relations" }).click();
     const relationSection = sectionByHeading(page, "Product-company relations");
     const relationProductSelect = relationSection.getByLabel("Product");
     const relationCompanySelect = relationSection.getByLabel("Company");
@@ -94,6 +95,7 @@ test.describe("CRM end-to-end", () => {
     await saveRelationButton.click();
     await expect(page.getByText("Product relation saved")).toBeVisible();
 
+    await page.getByRole("tab", { name: "Customer Finder" }).click();
     const finderSection = sectionByHeading(page, "Customer finder by product");
     await pickSelectOptionByText(finderSection.getByLabel("Product for customer search"), productName);
     await finderSection.getByLabel("Relation focus").selectOption("traded");
@@ -104,6 +106,7 @@ test.describe("CRM end-to-end", () => {
     await suggestionRow.getByRole("button", { name: "Create lead" }).click();
     await expect(page.getByText("Lead created from product match")).toBeVisible();
 
+    await page.getByRole("tab", { name: "Product Catalog" }).click();
     const productList = sectionByHeading(page, "Product list");
     const productRow = productList.locator("tbody tr", { hasText: productName }).first();
     await expect(productRow).toBeVisible();
