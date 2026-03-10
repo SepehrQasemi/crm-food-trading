@@ -224,10 +224,10 @@ test.describe("CRM end-to-end", () => {
   test("language switch persists and help center is reachable", async ({ page }) => {
     await loginAsE2EAdmin(page);
 
-    await page.getByRole("button", { name: "FA" }).click();
+    await page.getByRole("button", { name: "FR" }).first().click();
     await expect
       .poll(async () => page.evaluate(() => document.documentElement.getAttribute("dir")))
-      .toBe("rtl");
+      .toBe("ltr");
 
     const helpLink = page.locator('a[href="/help"]').first();
     await expect(helpLink).toBeVisible();
@@ -238,7 +238,7 @@ test.describe("CRM end-to-end", () => {
     await page.reload();
     await expect
       .poll(async () => page.evaluate(() => document.documentElement.getAttribute("data-locale")))
-      .toBe("fa");
+      .toBe("fr");
   });
 
   test("saved filters persist on leads and tasks", async ({ page }) => {
