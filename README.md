@@ -139,10 +139,12 @@ Notes:
 - For BI tools, call:
   - `GET /api/bi/kpis?range=30d&api_key=YOUR_BI_API_KEY`
 
-## Branch Policy (target)
+## Branch Policy (active)
 - Protected `main`
-- Merge via PR only
-- CI checks (`lint + build`) required before merge
+- Required status check: `lint-build`
+- Linear history + conversation resolution enabled
+- Admins included in protection
+- Auto-delete merged branches enabled
 
 ## Documentation
 - Default language: English
@@ -150,4 +152,5 @@ Notes:
 - French report: `docs/rapport-projet-fr.md`
 - Persian summary: `docs/resume-projet-fa.md`
 - Demo checklist: `docs/checklist-demo.md`
+- Final compliance matrix: `docs/final-compliance-checklist.md`
 - Diagrams: `docs/architecture.mmd`, `docs/mcd.mmd`, `docs/use-case.puml`
