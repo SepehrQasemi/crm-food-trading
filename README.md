@@ -93,12 +93,11 @@ What it does automatically:
 - checks `node` and `npm`
 - creates `web/.env.local` from `C:\dev\crm-secrets.env` if needed
 - installs dependencies if missing
-- runs quick health checks (`lint` + `build`)
 - starts the app and opens `http://127.0.0.1:3000/login`
 
 Useful flags:
 ```bash
-npm run start:oneclick -- --SkipHealth
+npm run start:oneclick -- --RunHealth
 npm run start:oneclick -- --NoBrowser
 npm run start:oneclick -- --ForceInstall
 npm run start:oneclick -- --DryRun
