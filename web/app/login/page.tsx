@@ -120,15 +120,11 @@ export default function LoginPage() {
         if (signUpError) throw signUpError;
         setSuccess(tr("Signup done. Check your inbox for verification if required."));
       } else {
-        const configuredAppUrl = process.env.NEXT_PUBLIC_APP_URL?.trim();
-        const resetBaseUrl =
-          configuredAppUrl && configuredAppUrl.length > 0
-            ? configuredAppUrl
-            : window.location.origin;
-        const callbackUrl = new URL("/auth/callback", resetBaseUrl.replace(/\/$/, ""));
-        callbackUrl.searchParams.set("next", "/reset-password");
+        // Keep recovery on the same origin and route directly to reset page.
+        // This is required with implicit flow, where tokens arrive in URL hash.
+        const resetUrl = new URL("/reset-password", window.location.origin.replace(/\/$/, ""));
         const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: callbackUrl.toString(),
+          redirectTo: resetUrl.toString(),
         });
         if (resetError) throw resetError;
         setSuccess(tr("Reset link sent. Check inbox and spam."));

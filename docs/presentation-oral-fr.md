@@ -8,7 +8,7 @@
 ## 2. Authentification et roles (45s)
 - Login / signup / reset password.
 - Signup avec confirmation mot de passe + bouton afficher/masquer.
-- Reset flow: email -> `/auth/callback?next=/reset-password` -> formulaire de nouveau mot de passe.
+- Reset flow: email -> `/reset-password` (same-origin recovery link) -> formulaire de nouveau mot de passe.
 - Page Settings minimale (reset password) pour gestion autonome du compte.
 - Roles: `admin`, `manager`, `commercial`, `standard_user`.
 - Controle d acces par role + RLS cote base.

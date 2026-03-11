@@ -158,15 +158,13 @@ Password reset delivery notes:
 - Supabase Auth email sending has provider limits on free tiers (`email rate limit exceeded` may appear after repeated requests).
 - ATA CRM UI now throttles reset retries for 60s and shows a clear message instead of raw provider text.
 - For reliable production delivery, configure custom SMTP in Supabase Auth (Email settings).
-- Keep callback URLs configured in Supabase (required by ATA CRM reset flow):
-  - `http://localhost:3000/auth/callback`
-  - `http://127.0.0.1:3000/auth/callback`
-  - your production callback domain path (`/auth/callback`)
-- Recovery links are sent to `/auth/callback?next=/reset-password`, then redirected server-side to the reset form.
-- Keep direct reset URLs allowed as a fallback:
+- ATA CRM reset flow now sends recovery links directly to `/reset-password` on the same app origin.
+- Keep direct reset URLs allowed in Supabase URL Configuration:
   - `http://localhost:3000/reset-password`
   - `http://127.0.0.1:3000/reset-password`
   - your production domain path (`/reset-password`)
+- Site URL should point to your production app domain (for example Vercel production URL).
+- `/auth/callback` can remain allowed for other auth callbacks, but it is not required for password reset anymore.
 - Always use a single host while testing recovery links (`localhost` or `127.0.0.1`, not both in one reset cycle).
 
 Email module access notes:
