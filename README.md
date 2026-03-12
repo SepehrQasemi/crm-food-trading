@@ -5,7 +5,7 @@ SaaS CRM project for a B2B company trading raw food ingredients.
 ## Structure
 - `supabase/`: SQL migrations and schema assets
 - `web/`: Next.js application (frontend + API routes)
-- `docs/`: reports, diagrams, and demo checklist
+- `docs/`: technical diagrams and architecture models
 - `.github/workflows/ci.yml`: quality + coverage + E2E gates
 
 ## Main Features
@@ -276,17 +276,5 @@ Notes:
 - Auto-delete merged branches enabled
 
 ## Documentation
-- Default language: English
-- Additional delivery language: French
-- French report: `docs/rapport-projet-fr.md`
-- Persian summary (archived): `docs/resume-projet-fa.md`
-- Demo checklist: `docs/checklist-demo.md`
-- Oral presentation script (FR): `docs/presentation-oral-fr.md`
-- Professor defense guide (FR): `docs/guide-soutenance-prof-fr.md`
-- Formal test game (FR): `docs/jeu-de-test-crm-fr.md`
-- Professor comparison with evidence (FR): `docs/comparaison-enonce-preuves-fr.md`
-- Final compliance matrix: `docs/final-compliance-checklist.md`
-- Latest QA proof: `docs/qa-proof-2026-03-11.md`
-- Safe baseline notes: `docs/release-baseline-v1.md`
 - Docs index: `docs/README.md`
 - Diagrams: `docs/architecture.mmd`, `docs/workflow-commercial.mmd`, `docs/workflow-onboarding-help.mmd`, `docs/sequence-followup.mmd`, `docs/mcd.mmd`, `docs/use-case.puml`, `docs/uml-domain.puml`, `docs/uml-application-view.puml`
