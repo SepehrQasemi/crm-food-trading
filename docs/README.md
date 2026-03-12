@@ -1,34 +1,16 @@
 # Documentation Index
 
-This folder contains the delivery package for the stable baseline of the CRM project.
+This folder contains technical architecture and modeling assets used for ongoing development.
 
-Latest scope note:
-- Product categories module is now part of the delivery (`/categories` + category profiles with paginated product/supplier/customer cards).
-- Presentation dataset is generated with `npm run seed:presentation` (clean data + 3 kept users).
+## Technical Diagrams
+- `architecture.mmd`: technical architecture (app, API, Supabase, Brevo, Vercel)
+- `workflow-commercial.mmd`: commercial workflow from lead creation to final outcome
+- `workflow-onboarding-help.mmd`: onboarding and help usage flow
+- `sequence-followup.mmd`: 72h follow-up automation sequence
+- `mcd.mmd`: data model overview (Merise-style ER diagram)
+- `use-case.puml`: high-level use-case UML
+- `uml-domain.puml`: domain UML (entities and relations)
+- `uml-application-view.puml`: application/module view
 
-## Core Reports
-- `rapport-projet-fr.md`: full French project report for submission.
-- `resume-projet-fa.md`: Persian executive summary (archived, not active in current UI scope).
-- `final-compliance-checklist.md`: requirement-by-requirement completion matrix.
-- `comparaison-enonce-preuves-fr.md`: professor requirement comparison with concrete evidence.
-- `checklist-demo.md`: operational checklist for the oral demo.
-- `presentation-oral-fr.md`: ready-to-use oral script (8-10 min).
-- `jeu-de-test-crm-fr.md`: formal test game for live defense.
-- `qa-proof-2026-03-11.md`: latest quality gate proof report (lint/build/test/e2e/release + coverage + mobile responsive checks).
-- `guide-soutenance-prof-fr.md`: extracted professor expectations + defense strategy.
-- `release-baseline-v1.md`: safe baseline freeze procedure and rollback notes.
-
-## Diagrams
-- `architecture.mmd`: technical architecture (app, API, Supabase, Brevo, Vercel).
-- `workflow-commercial.mmd`: end-to-end commercial workflow from lead to outcome.
-- `workflow-onboarding-help.mmd`: onboarding/help/user-learning workflow.
-- `sequence-followup.mmd`: 72h follow-up automation sequence with idempotent lock.
-- `mcd.mmd`: data model overview (Merise-style ER diagram).
-- `use-case.puml`: high-level use-case UML.
-- `uml-domain.puml`: detailed domain UML (entities and associations).
-- `uml-application-view.puml`: application modules view including i18n/help/search.
-
-## Language Policy
-- Default language for technical docs: English.
-- Active delivery language: French.
-- Persian notes are archived documentation only for historical traceability.
+## Notes
+- Professor-specific defense and submission documents were removed from this repository.
